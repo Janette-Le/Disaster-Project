@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Disasters</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+    <style>
+        .new{
+            border-style:solid;
+            border-color:silver
+        }
+        .status[new-status="postponed"]:after {
+        background-color: greenyellow
+        }
+        </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Disaster Response Project</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="https://www.udacity.com/">Made with Udacity</a></li>
+                <li><a href="https://github.com/">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="text-center">Disaster Response Project</h1>
+        <p class="text-center">Analyzing message data for disaster response</p>
+        <hr />
+      
+        <div class="row">
+            <div class="col-lg-12 form-group-lg">
+                <form action="{{ url_for('predict')}}" method="post">
+                    <input type="text" class="form-control form-control-lg" name="query" id = "query" placeholder="Enter a message to classify">
+                    <div class="col-lg-offset-5">
+                        <button type="submit" class="btn btn-lg btn-success">Classify Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% block message %}
+        {% endblock %}
+    </div>
+</div>
+
+<div class="container" style="margin: auto;"> 
+    {% block content %}
+        <div class="page-header">
+            <h1 class="text-center">Overview of Training Dataset</h1>
+        </div>
+        <div>
+            <a href="https://plotly.com/~zeeshan1/1/?share_key=JFXowZXIN1iWXeDet6VUR1" target="_blank" title="Plot 1" style="display: block; text-align: center;"><img src="https://plotly.com/~zeeshan1/1.png?share_key=JFXowZXIN1iWXeDet6VUR1" alt="Plot 1" style="max-width: 100%;width: 800px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
+            <script data-plotly="zeeshan1:1" sharekey-plotly="JFXowZXIN1iWXeDet6VUR1" src="https://plotly.com/embed.js" async></script>
+        </div>
+        
+
+
+        <div id="hello1" class="text-center"></div>  
+            <h3>{{result_text}}</h3>
+        </div>
+
+        <div id="l_one"  class="new">
+            <h4 class="text-center">Related</h4>
+        </div>
+
+        <div id="l_two" class="new">
+            <h4 class="text-center">Request</h4>
+        </div>
+
+        <div id="l_three" class="new">
+            <h4 class="text-center">Offer</h4>
+        </div>
+
+        <div  id="l_four" class="new">
+            <h4 class="text-center">Aid_Related</h4>
+        </div>
+
+        <div id="l_five"  class="new">
+            <h4 class="text-center">Medical health</h4>
+        </div>
+
+        <div id="l_six"  class="new">
+            <h4 class="text-center">Medical products</h4>
+        </div>
+
+        <div id="l_seven"  class="new">
+            <h4 class="text-center">Search and Rescue</h4>
+        </div>
+
+        <div id="l_eight"  class="new">
+            <h4 class="text-center">Security</h4>
+        </div>
+
+        <div id="l_nine"  class="new">
+            <h4 class="text-center">Military</h4>
+        </div>
+
+        <div id="l_ten"  class="new">
+            <h4 class="text-center">Child Alone</h4>
+        </div>
+
+        <div id="l_eleven"  class="new">
+            <h4 class="text-center">Water</h4>
+        </div>
+
+        <div id="l_twelve"  class="new">
+            <h4 class="text-center">Food</h4>
+        </div>
+
+        <div id="l_thirteen"  class="new">
+            <h4 class="text-center">Shelter</h4>
+        </div>
+
+        <div id="l_forteen"  class="new">
+            <h4 class="text-center">Clothing</h4>
+        </div>
+
+        <div id="l_fifteen"  class="new">
+            <h4 class="text-center">Money</h4>
+        </div>
+
+        <div id="l_sixteen"  class="new">
+            <h4 class="text-center">Missing People</h4>
+        </div>
+
+        <div id="l_seventeen"  class="new">
+            <h4 class="text-center">Refugees</h4>
+        </div>
+
+        <div id="l_eighteen"  class="new">
+            <h4 class="text-center">Death</h4>
+        </div>
+
+        <div id="l_nineteen"  class="new">
+            <h4 class="text-center">Other Aid</h4>
+        </div>
+
+        <div id="l_twenty"  class="new">
+            <h4 class="text-center">Infrastructure Related</h4>
+        </div>
+
+        <div id="l_twentyOne"  class="new">
+            <h4 class="text-center">Transport</h4>
+        </div>
+
+        <div id="l_twentyTwo"  class="new">
+            <h4 class="text-center">BuildingB</h4>
+        </div>
+        
+        <div id="l_twentyThree"  class="new">
+            <h4 class="text-center">Electricity</h4>
+        </div>
+
+        <div id="l_twentyFour"  class="new">
+            <h4 class="text-center">Tools</h4>
+        </div>
+
+        <div id="l_twentyFive"  class="new">
+            <h4 class="text-center">Hospitals</h4>
+        </div>
+
+        <div id="l_twentySix"  class="new">
+            <h4 class="text-center">Shops</h4>
+        </div>
+
+        <div id="l_twentySeven"  class="new">
+            <h4 class="text-center">Aid Centers</h4>
+        </div>
+
+        <div id="l_twentyEight"  class="new">
+            <h4 class="text-center">Other Infrastructure</h4>
+        </div>
+        
+        <div  id="l_twentyNine" class="new">
+            <h4 class="text-center">Weather Related</h4>
+        </div>
+
+        <div id="l_thirty"  class="new">
+            <h4 class="text-center">Floods</h4>
+        </div>
+
+        <div id="l_thirtyOne"  class="new">
+            <h4 class="text-center">Storms</h4>
+        </div>
+
+        <div id="l_thirtyTwo"  class="new">
+            <h4 class="text-center">Fire</h4>
+        </div>
+
+        <div id="l_thirtyThree"  class="new">
+            <h4 class="text-center">Earthquake</h4>
+        </div>
+
+        <div  id="l_thirtyFour"  class="new">
+            <h4 class="text-center">Cold</h4>
+        </div>
+        
+        <div id="l_thirtyFive"  class="new">
+            <h4 class="text-center">Other Weather</h4>
+        </div>
+        <div  id="l_thirtySix" class="new">
+            <h4 class="text-center">Direct Report</h4>
+        </div>
+
+
+        <div style="display: none;">
+            <p id="one">
+                {{one}}
+            </p>
+            
+            <p id="two">
+                {{two}}
+              </p>
+            
+            <p id="three">
+                {{three}}
+            </p>
+            
+            <p id="four">
+                {{four}}
+              </p>
+              <p id="five">
+                {{five}}
+              </p>
+              <p id="six">
+                {{six}}
+              </p>
+              <p id="seven">
+                {{seven}}
+              </p>
+              <p id="eight">
+                {{eight}}
+              </p>
+              <p id="nine">
+                {{nine}}
+              </p>
+              
+            <p id="ten">
+                {{ten}}
+              </p>
+              <p id="eleven">
+                {{eleven}}
+              </p>
+              
+            <p id="twelve">
+                {{twelve}}
+              </p>
+              <p id="thirteen">
+                {{thirteen}}
+              </p>
+              <p id="forteen">
+                {{forteen}}
+              </p>
+              <p id="fifteen">
+                {{fifteen}}
+              </p>
+              <p id="sixteen">
+                {{sixteen}}
+              </p>
+              <p id="seventeen">
+                {{seventeen}}
+              </p>
+              
+            <p id="eighteen">
+                {{eighteen}}
+              </p>
+              <p id="nineteen">
+                {{nineteen}}
+              </p>
+              <p id="twenty">
+                {{twenty}}
+              </p>
+              <p id="twentyOne">
+                {{twentyOne}}
+              </p>
+              <p id="twentyTwo">
+                {{twentyTwo}}
+              </p>
+              <p id="twentyThree">
+                {{twentyThree}}
+              </p>
+              <p id="twentyFour">
+                {{twentyFour}}
+              </p>
+              <p id="twentyFive">
+                {{twentyFive}}
+              </p>
+              <p id="twentySix">
+                {{twentySix}}
+              </p>
+              
+            <p id="twentySeven">
+                {{twentySeven}}
+              </p>
+              <p id="twentyEight">
+                {{twentyEight}}
+              </p>
+              <p id="twentyNine">
+                {{twentyNine}}
+              </p>
+              <p id="thirty">
+                {{thirty}}
+              </p>
+              <p id="thirtyOne">
+                {{thirtyOne}}
+              </p>
+              <p id="thirtyTwo">
+                {{thirtyTwo}}
+              </p>
+              <p id="thirtyThree">
+                {{thirtyThree}}
+              </p>
+              <p id="thirtyFour">
+                {{thirtyFour}}
+              </p>
+              
+            <p id="thirtyFive">
+                {{thirtyFive}}
+              </p>
+              <p id="thirtySix">
+                {{thirtySix}}
+              </p>
+        </div>
+    
+    <!-- {% endblock %}
+
+    {% for id in ids %}
+        <div id="{{id}}"></div>
+    {% endfor %} -->
+</div>
+
+<!-- <script type="text/javascript">
+    const graphs = {{graphJSON | safe}};
+    const ids = {{ids | safe}};
+    for(let i in graphs) {
+        Plotly.plot(ids[i], graphs[i].data, graphs[i].layout);
+    }
+</script> -->
+<script>
+    function setValue(x) {
+      console.log(x);
+      console.log(x.length);
+        return x.slice(17,18);   // The function returns the product of p1 and p2
+    }
+    
+    function setColor(x, y){
+    var x = setValue(document.getElementById(x).innerHTML);
+    console.log(x);
+    if (x === '1'){    
+    document.getElementById(y).style.backgroundColor = "green";
+        console.log("working");
+    }
+    else{
+        document.getElementById(y).style.backgroundColor = "white";
+        console.log("ye kia")
+    }  
+    }
+
+    setColor("one", "l_one");
+    setColor("two", "l_two");
+    setColor("three", "l_three");
+    setColor("four", "l_four");
+    setColor("five", "l_five");
+    setColor("six", "l_six");
+    setColor("seven", "l_seven");
+    setColor("eight", "l_eight");
+    setColor("nine", "l_nine");
+    setColor("ten", "l_ten");
+    setColor("eleven", "l_eleven");
+    setColor("twelve", "l_twelve");
+    setColor("thirteen", "l_thirteen");
+    setColor("forteen", "l_forteen");
+    setColor("fifteen", "l_fifteen");
+    setColor("sixteen", "l_sixteen");
+    setColor("seventeen", "l_seventeen");
+    setColor("eighteen", "l_eighteen");
+    setColor("nineteen", "l_nineteen");
+    setColor("twenty", "l_twenty");
+    setColor("twentyOne", "l_twentyOne");
+    setColor("twentyTwo", "l_twentyTwo");
+    setColor("twentyThree", "l_twentyThree");
+    setColor("twentyFour", "l_twentyFour");
+    setColor("twentyFive", "l_twentyFive");
+    setColor("twentySix", "l_twentySix");
+    setColor("twentySeven", "l_twentySeven");
+    setColor("twentyEight", "l_twentyEight");
+    setColor("twentyNine", "l_twentyNine");
+    setColor("thirty", "l_thirty");
+    setColor("thirtyOne", "l_thirtyOne");
+    setColor("thirtyTwo", "l_thirtyTwo");
+    setColor("thirtyThree", "l_thirtyThree");
+    setColor("thirtyFour", "l_thirtyFour");
+    setColor("thirtyFive", "l_thirtyFive");
+    setColor("thirtySix", "l_thirtySix");
+    
+//----------------------------------------------------------------------------------------------------------
+    
+    
+</script>
+</body>
+</html>
